@@ -51,16 +51,37 @@
     [data-reveal]{opacity:1!important;transform:none!important}
   }
 
-  /* Hide decorative overlays on narrow viewports — they overlap main content. */
+  /* Mobile: keep decorations but shrink so they don't overlap main content */
   @media (max-width: 640px){
-    [data-pawtrail],
-    [data-catchcat],
-    img[alt="silly cat sticker"],
-    div:has(> img[alt="silly cat sticker"]),
-    div:has(> img[alt="a cat encounter"]),
-    .step-arrow{
-      display:none !important;
+    /* Steven — smaller and still floats through the page */
+    [data-catchcat]{width:68px !important}
+    [data-catchcat-tag]{font-size:9px !important;padding:2px 7px !important}
+
+    /* Hero polaroid photo cards — reflow inline below the hero copy
+       instead of overlapping the heading */
+    div:has(> img[alt="a cat encounter"]){
+      position:static !important;
+      display:inline-block !important;
+      width:110px !important;
+      margin:10px 6px 0 !important;
     }
+    div:has(> img[alt="a cat encounter"]) img{
+      height:95px !important;
+    }
+
+    /* Decorative stickers — shrink to small accents so they read as scrapbook
+       details, not full-size photos competing with text */
+    img[alt="silly cat sticker"]{
+      width:44px !important;
+      height:auto !important;
+    }
+    div:has(> img[alt="silly cat sticker"]){
+      width:48px !important;
+      padding:3px !important;
+    }
+
+    /* Step »» arrows don't make sense when steps stack vertically */
+    .step-arrow{display:none !important}
   }
 </style>
 </head>
