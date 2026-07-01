@@ -51,37 +51,25 @@
     [data-reveal]{opacity:1!important;transform:none!important}
   }
 
-  /* Mobile: keep decorations but shrink so they don't overlap main content */
+  /* Mobile: keep Steven + paw trail, hide other decorations that overlap content */
   @media (max-width: 640px){
-    /* Steven — smaller and still floats through the page */
+    /* Steven the mascot — shrink but keep him floating through the page */
     [data-catchcat]{width:68px !important}
     [data-catchcat-tag]{font-size:9px !important;padding:2px 7px !important}
 
-    /* Hero polaroid photo cards — reflow inline below the hero copy
-       instead of overlapping the heading */
-    div:has(> img[alt="a cat encounter"]){
-      position:static !important;
-      display:inline-block !important;
-      width:110px !important;
-      margin:10px 6px 0 !important;
-    }
-    div:has(> img[alt="a cat encounter"]) img{
-      height:95px !important;
+    /* Hide decorations that overlap main content on narrow screens */
+    img[alt="silly cat sticker"],
+    div:has(> img[alt="silly cat sticker"]),
+    div:has(> img[alt="a cat encounter"]),
+    .step-arrow{
+      display:none !important;
     }
 
-    /* Decorative stickers — shrink to small accents so they read as scrapbook
-       details, not full-size photos competing with text */
-    img[alt="silly cat sticker"]{
-      width:44px !important;
-      height:auto !important;
+    /* Right-aligned text cards (map + feed sections on desktop) read weird
+       when they stack on mobile — reset to left align */
+    div[style*="text-align:right"]{
+      text-align:left !important;
     }
-    div:has(> img[alt="silly cat sticker"]){
-      width:48px !important;
-      padding:3px !important;
-    }
-
-    /* Step »» arrows don't make sense when steps stack vertically */
-    .step-arrow{display:none !important}
   }
 </style>
 </head>
